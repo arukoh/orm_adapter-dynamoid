@@ -32,14 +32,14 @@ module Dynamoid
       def find_first(options = {})
         conditions, order = extract_conditions!(options)
 #        klass.limit(1).where(conditions_to_fields(conditions)).order_by(order).first
-        klass.where(conditions_to_fields(conditions)).limit(1).first
+        klass.where(conditions_to_fields(conditions)).first
       end
 
       # @see OrmAdapter::Base#find_all
       def find_all(options = {})
         conditions, order, limit, offset = extract_conditions!(options)
 #        klass.where(conditions_to_fields(conditions)).order_by(order).limit(limit).offset(offset)
-        klass.where(conditions_to_fields(conditions)).limit(limit)
+        klass.where(conditions_to_fields(conditions))
       end
 
       # @see OrmAdapter::Base#create!
